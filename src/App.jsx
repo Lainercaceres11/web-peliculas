@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AppHome from './pages/AppHome';
 import MovieDetails from './pages/MovieDetails';
@@ -13,14 +13,14 @@ export default function App() {
       </header>
 
       <main>
-        <Switch>
-          <Route exact path="/movies/:movieId">
-            <MovieDetails />
-          </Route>
-          <Route path="/">
-            <AppHome />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route
+            path="/movies/:movieId"
+            element={<MovieDetails />}
+          ></Route>
+          <Route path="/" element={<AppHome />}></Route>
+          <Route path='*' element={<Navigate replace to={'/'} />} ></Route>
+        </Routes>
       </main>
     </BrowserRouter>
   );
