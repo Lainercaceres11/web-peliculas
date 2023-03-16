@@ -31,3 +31,9 @@
    padding: 5px;
    background: whitesmoke;
 }
+
+@media (max-width: 374px){
+    .searchButton{
+        display: none;
+    }
+}
